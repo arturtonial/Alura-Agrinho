@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho Escolar | Robótica e Física</title>
+    
+    <style>
+        /* =========================================
+           VARIÁVEIS DE CORES (PALETA AZUL)
+           ========================================= */
+        :root {
+            --azul-escuro: #0f2c59; /* Elementos principais e cabeçalho */
+            --azul-claro: #3b82f6; /* Destaques e botões */
+            --azul-hover: #2563eb; /* Efeito hover */
+            --fundo: #f8fafc; /* Fundo cinza bem claro */
+            --texto-principal: #334155;
+            --texto-secundario: #64748b;
+            --branco: #ffffff;
+        }
+
+        /* =========================================
+           RESET E TIPOGRAFIA
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--fundo);
+            color: var(--texto-principal);
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           CABEÇALHO E NAVEGAÇÃO
+           ========================================= */
+        header {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--azul-claro);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--branco);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--azul-claro);
+        }
+
+        /* =========================================
+           ESTRUTURA DAS SEÇÕES
+           ========================================= */
+        section {
+            padding: 100px 20px 60px; /* Padding top maior por causa do menu fixo */
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 80vh;
+        }
+
+        .section-title {
+            color: var(--azul-escuro);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--azul-claro);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .content-text {
+            text-align: justify;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* =========================================
+           GALERIA (MÍDIAS)
+           ========================================= */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .media-placeholder {
+            background-color: #e2e8f0;
+            border: 2px dashed #94a3b8;
+            border-radius: 8px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            color: var(--texto-secundario);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .media-placeholder:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .media-placeholder span {
+            font-weight: bold;
+            color: var(--azul-escuro);
+            margin-bottom: 10px;
+        }
+
+        /* Imagens reais e Iframes (Para quando você colocar os links) */
+        .galeria img, .galeria iframe, .galeria video {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* =========================================
+           RODAPÉ
+           ========================================= */
+        footer {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        .integrantes-lista {
+            list-style: none;
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .integrantes-lista li {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade para celulares */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Escola <span>NomeDaSuaEscola</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#robotica">Robótica</a></li>
+                    <li><a href="#fisica">Física e Tecnociência</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio">
+        <h2 class="section-title">Relatório de Atividades</h2>
+        <div class="content-text">
+            <p>Bem-vindo ao nosso portfólio digital. Este site foi desenvolvido para apresentar as atividades, experimentos e projetos práticos realizados durante o ano letivo nas disciplinas de Robótica e Física e Tecnociência.</p>
+            <br>
+            <p>Nosso objetivo é demonstrar a aplicação prática dos conceitos teóricos aprendidos em sala de aula, unindo tecnologia, ciência e criatividade.</p>
+        </div>
+    </section>
+
+    <hr style="border: 0; height: 1px; background: #e2e8f0; max-width: 1000px; margin: 0 auto;">
+
+    <section id="robotica">
+        <h2 class="section-title">Robótica</h2>
+        <div class="content-text">
+            <p>Nesta seção, exploramos os fundamentos da mecânica e da programação. Descreva aqui os robôs que vocês montaram, os desafios de programação que enfrentaram e os resultados obtidos em cada aula prática.</p>
+        </div>
+
+        <div class="galeria">
+            <div class="media-placeholder">
+                <span>Imagem de Robótica 1</span>
+                [INSIRA O LINK DA SUA IMAGEM DE ROBÓTICA AQUI]
+                </div>
+            
+            <div class="media-placeholder">
+                <span>Vídeo de Robótica 1</span>
+                [INSIRA O LINK DO SEU VÍDEO DE ROBÓTICA AQUI]
+                </div>
+        </div>
+    </section>
+
+    <hr style="border: 0; height: 1px; background: #e2e8f0; max-width: 1000px; margin: 0 auto;">
+
+    <section id="fisica">
+        <h2 class="section-title">Física e Tecnociência</h2>
+        <div class="content-text">
+            <p>A física está presente em tudo ao nosso redor. Aqui documentamos os experimentos realizados em laboratório, analisando fenômenos físicos e testando teorias com o apoio da tecnociência.</p>
+        </div>
+
+        <div class="galeria">
+            <div class="media-placeholder">
+                <span>Imagem de Física 1</span>
+                [INSIRA O LINK DA SUA IMAGEM DE FÍSICA AQUI]
+                </div>
+            
+            <div class="media-placeholder">
+                <span>Vídeo de Física 1</span>
+                [INSIRA O LINK DO SEU VÍDEO DE FÍSICA AQUI]
+                </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>Desenvolvido por:</strong></p>
+        <ul class="integrantes-lista">
+            <li>Nome do Integrante 1</li>
+            <li>Nome do Integrante 2</li>
+            <li>Nome do Integrante 3</li>
+        </ul>
+        <p>&copy; <span id="ano-atual"></span> - Trabalho Escolar. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Funcionalidade 1: Adicionar o ano atual automaticamente no rodapé
+        const anoAtual = new Date().getFullYear();
+        document.getElementById('ano-atual').textContent = anoAtual;
+
+        // Funcionalidade 2: Efeito simples de "Fade In" ao rolar a página
