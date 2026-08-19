@@ -1,209 +1,10 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trabalho Escolar | Robótica e Física</title>
-    
-    <style>
-        /* =========================================
-           VARIÁVEIS DE CORES (PALETA AZUL)
-           ========================================= */
-        :root {
-            --azul-escuro: #0f2c59; /* Elementos principais e cabeçalho */
-            --azul-claro: #3b82f6; /* Destaques e botões */
-            --azul-hover: #2563eb; /* Efeito hover */
-            --fundo: #f8fafc; /* Fundo cinza bem claro */
-            --texto-principal: #334155;
-            --texto-secundario: #64748b;
-            --branco: #ffffff;
-        }
-
-        /* =========================================
-           RESET E TIPOGRAFIA
-           ========================================= */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--fundo);
-            color: var(--texto-principal);
-            line-height: 1.6;
-        }
-
-        /* =========================================
-           CABEÇALHO E NAVEGAÇÃO
-           ========================================= */
-        header {
-            background-color: var(--azul-escuro);
-            color: var(--branco);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo h1 {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: var(--azul-claro);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        nav a {
-            color: var(--branco);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--azul-claro);
-        }
-
-        /* =========================================
-           ESTRUTURA DAS SEÇÕES
-           ========================================= */
-        section {
-            padding: 100px 20px 60px; /* Padding top maior por causa do menu fixo */
-            max-width: 1200px;
-            margin: 0 auto;
-            min-height: 80vh;
-        }
-
-        .section-title {
-            color: var(--azul-escuro);
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: var(--azul-claro);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        .content-text {
-            text-align: justify;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* =========================================
-           GALERIA (MÍDIAS)
-           ========================================= */
-        .galeria {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .media-placeholder {
-            background-color: #e2e8f0;
-            border: 2px dashed #94a3b8;
-            border-radius: 8px;
-            height: 250px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-            color: var(--texto-secundario);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .media-placeholder:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-        }
-
-        .media-placeholder span {
-            font-weight: bold;
-            color: var(--azul-escuro);
-            margin-bottom: 10px;
-        }
-
-        /* Imagens reais e Iframes (Para quando você colocar os links) */
-        .galeria img, .galeria iframe, .galeria video {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        /* =========================================
-           RODAPÉ
-           ========================================= */
-        footer {
-            background-color: var(--azul-escuro);
-            color: var(--branco);
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
-        }
-
-        .integrantes-lista {
-            list-style: none;
-            margin: 20px 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .integrantes-lista li {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        /* Responsividade para celulares */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -242,15 +43,91 @@
         </div>
 
         <div class="galeria">
-            <div class="media-placeholder">
-                <span>Imagem de Robótica 1</span>
-                [INSIRA O LINK DA SUA IMAGEM DE ROBÓTICA AQUI]
+
+            <!-- Vídeo 1: Disco de Newton -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video src="videos/disco-de-newton.mp4" controls muted playsinline preload="metadata"></video>
                 </div>
-            
-            <div class="media-placeholder">
-                <span>Vídeo de Robótica 1</span>
-                [INSIRA O LINK DO SEU VÍDEO DE ROBÓTICA AQUI]
+                <div class="video-info">
+                    <h3>Disco de Newton</h3>
+                    <div class="componentes">
+                        <span>Arduino Uno</span>
+                        <span>Motor</span>
+                        <span>Potenciômetro</span>
+                        <span>Disco colorido</span>
+                    </div>
+                    <p>Um disco com as cores giratório, ligado a um pequeno motor controlado pelo Arduino (não lembramos o nome exato do modelo do motor). A velocidade de rotação é ajustada em tempo real girando um potenciômetro, que envia um valor variável para uma entrada analógica da placa — quanto mais giramos, mais rápido o disco gira.</p>
                 </div>
+            </div>
+
+            <!-- Vídeo 2: Fade In -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video src="videos/fade-in-fade-out.mp4" controls muted playsinline preload="metadata"></video>
+                </div>
+                <div class="video-info">
+                    <h3>Fade In / Fade Out</h3>
+                    <div class="componentes">
+                        <span>Arduino Uno</span>
+                        <span>LED</span>
+                        <span>Resistor</span>
+                        <span>PWM (analogWrite)</span>
+                    </div>
+                    <p>Projeto que controla a velocidade com que a intensidade de um LED muda. No Fade In, o LED começa apagado e a luz vai aumentando aos poucos até acender por completo; no Fade Out acontece o contrário. Isso é feito programando a placa para variar aos poucos a potência enviada ao LED, em vez de simplesmente ligar ou desligar de uma vez.</p>
+                </div>
+            </div>
+
+            <!-- Vídeo 3: LED RGB -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video src="videos/led-rgb.mp4" controls muted playsinline preload="metadata"></video>
+                </div>
+                <div class="video-info">
+                    <h3>LED RGB</h3>
+                    <div class="componentes">
+                        <span>Arduino Uno</span>
+                        <span>LED RGB</span>
+                        <span>Potenciômetro</span>
+                        <span>Resistores</span>
+                    </div>
+                    <p>Um LED RGB que muda de cor conforme mexemos em um potenciômetro. Basicamente, a posição do potenciômetro é lida pelo Arduino e esse valor é usado para controlar a intensidade de cada uma das três cores do LED (vermelho, verde e azul), criando combinações diferentes de cor.</p>
+                </div>
+            </div>
+
+            <!-- Vídeo 4: Semáforo -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video src="videos/semaforo.mp4" controls muted playsinline preload="metadata"></video>
+                </div>
+                <div class="video-info">
+                    <h3>Semáforo</h3>
+                    <div class="componentes">
+                        <span>Arduino Uno</span>
+                        <span>LEDs (vermelho, amarelo, verde)</span>
+                        <span>Resistores</span>
+                        <span>Protoboard</span>
+                    </div>
+                    <p>Simulação de um semáforo de trânsito real, alternando entre as cores verde, amarela e vermelha em um tempo determinado no código. Cada LED fica aceso por um período programado antes de passar para a próxima cor, reproduzindo a lógica de um sinal de trânsito de verdade.</p>
+                </div>
+            </div>
+
+            <!-- Vídeo 5: Ciclo da Luz -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video src="videos/ciclo-da-luz.mp4" controls muted playsinline preload="metadata"></video>
+                </div>
+                <div class="video-info">
+                    <h3>Ciclo da Luz (Dia e Noite)</h3>
+                    <div class="componentes">
+                        <span>Arduino Uno</span>
+                        <span>LED RGB</span>
+                        <span>Resistor</span>
+                    </div>
+                    <p>Projeto que representa a passagem do tempo ao longo do dia usando um único LED RGB. Conforme o tempo passa, o LED muda de cor gradualmente — tons mais claros representando o dia e tons de azul representando a noite — e o sistema anuncia em voz qual período está sendo representado de acordo com a cor acesa.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -267,7 +144,7 @@
                 <span>Imagem de Física 1</span>
                 [INSIRA O LINK DA SUA IMAGEM DE FÍSICA AQUI]
                 </div>
-            
+
             <div class="media-placeholder">
                 <span>Vídeo de Física 1</span>
                 [INSIRA O LINK DO SEU VÍDEO DE FÍSICA AQUI]
@@ -292,3 +169,7 @@
         document.getElementById('ano-atual').textContent = anoAtual;
 
         // Funcionalidade 2: Efeito simples de "Fade In" ao rolar a página
+    </script>
+
+</body>
+</html>
